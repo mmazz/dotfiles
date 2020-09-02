@@ -1,9 +1,9 @@
 # Basic vars
-set shell bash
+set shell zsh
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set color256 true
+#set color256 true
 set icons
 set period 1
 set hidden true

@@ -30,6 +30,7 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 gpg2 --homedir "$XDG_DATA_HOME"/gnupg
+eval $(dircolors "$XDG_CONFIG_HOME"/dircolors)
 # Start graphical server on tty1 if not already running.
 
 if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then

@@ -21,15 +21,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Text readability
     Plug 'junegunn/goyo.vim'
+    " Latex
+    Plug 'lervag/vimtex'
     " Themes
     Plug 'joshdick/onedark.vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    " FZF
+    Plug 'ycm-core/YouCompleteMe'
+    "Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline-themes'
+    " FZF, for searchibg
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
-    Plug 'ying17zi/vim-live-latex-preview'
+    " View of classes and methods
+    Plug 'majutsushi/tagbar'
+    "Plug 'ying17zi/vim-live-latex-preview'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatically install missing plugins  on startup
@@ -73,7 +78,6 @@ endif
 " Disables automatic commenting on newline:
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 " Mapping
 " Compile document, be it groff/LaTeX/markdown/etc.
 	map <leader>c :w! \| !compiler <c-r>%<CR>
