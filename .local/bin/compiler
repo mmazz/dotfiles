@@ -12,17 +12,23 @@
 file=$(readlink -f "$1")
 dir=${file%/*}
 base="${file%.*}"
+name_ext=${file##*/}
+name=${name_ext%%.*}
 ext="${file##*.}"
-BASE="${file##*/}"
-BASE2="${BASE%.*}"
-cd "$dir" || exit
 
+cd "$dir" || exit 1
+# como me estoy moviendo al directorio, las variables definidas las tengo que usar sin todo el path
 textype() { \
 	command="pdflatex"
-	$command "$BASE"
-	bibtex "$BASE2"
-	$command "$BASE"
-	$command "$BASE"
+	#( head -n5 "$file" | grep -qi 'xelatex' ) && command="xelatex"
+	$command "${name}.${ext}" &&
+	#grep -qi addbibresource "$file" &&
+	#biber --input-directory "$dir" "$base" &&
+	#bibtex "$dir"  &&
+	bibtex  "$name"  &&
+	$command   "${name}.${ext}" &&
+	$command  "${name}.${ext}"
+
 }
 
 case "$ext" in
