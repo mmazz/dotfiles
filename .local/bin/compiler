@@ -9,11 +9,14 @@
 # Note that .tex files which you wish to compile with XeLaTeX should have the
 # string "xelatex" somewhere in a comment/command in the first 5 lines.
 
+# bash script, # hace que borre desde el principio lo que le pases, si uso ## fuerza aun mas, 
+# name=${file#*/} asi borraria hasta el primer /, pero con  el doble borra hasta el ultimo /
+# % hace lo opuesto, arranca desde el final. "${file%.*}" aca busca desde el final todo (*) hasta el punto
 file=$(readlink -f "$1")
 dir=${file%/*}
 base="${file%.*}"
 name_ext=${file##*/}
-name=${name_ext%%.*}
+name=${name_ext%%.*} # name=${file##*/} deberia funcionar 
 ext="${file##*.}"
 
 cd "$dir" || exit 1
