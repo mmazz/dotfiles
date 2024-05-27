@@ -14,6 +14,8 @@ bspc config gapless_monocle      true
 
 bspc rule -a pavucontrol desktop='^9' follow=on
 bspc rule -a firefox desktop='^1' follow=on
+bspc rule -a spotify desktop='^5' follow=on
+bspc rule -a Gimp desktop='^6' follow=on
 
 # AutoStart
 sxhkd &
