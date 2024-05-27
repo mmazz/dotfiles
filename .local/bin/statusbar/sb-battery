@@ -1,0 +1,32 @@
+#!/bin/sh
+#case $BUTTON in
+#    1)notify-send "🌈 Battery module" "\- No actions" ;;
+#	2) notify-send "🌈 Battery module" "\- No actions" ;;
+#	3) notify-send "🌈 Battery module" "\- No actions" ;;
+#	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+#esac
+#DIR="/sys/class/power_supply/BAT?*"
+DIR="/sys/class/power_supply/BAT0"
+# Loop through all attached batteries and format the info
+if [ -d "$DIR" ]; then
+for battery in $DIR; do # Does not work with ?*
+         # If non-first battery, print a space separator.
+        [ -n "${capacity+x}" ] && printf " "
+        # Sets up the status and capacity
+        case "$(cat "$battery/status")" in
+            "Full") status=" " ;;
+            "Discharging") status=" " ;;
+            "Charging") status="  " ;;
+            "Not charging") status=" " ;;
+            "Unknown") status=" " ;;
+        esac
+        capacity=$(cat "$battery/capacity")
+        # Will make a warn variable if discharging and low
+        [ "$status" = " " ] && [ "$capacity" -le 25 ] && warn="  "
+        # Prints the info
+        printf "%s%s%d%%" "$status" "$warn" "$capacity"; unset warn
+done && exit 0
+else
+    echo "  "
+fi
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xrdb -merge ~/.config/x11/xresources &
+unclutter -idle 3 &
