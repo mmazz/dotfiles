@@ -1,19 +1,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-#PS1="%B%{$fg[cyan]%}[%{%}%n%{%}@%{%}%M %{$fg[white]%}%~%{$fg[cyan]%}]%{%}$%b "
-#zstyle ':completion:*:*:git:*' script ~/usr/share/zsh/plugins/git-completion.bash
-#fpath=(~/usr/share/zsh/plugins $fpath)
-#autoload -Uz compinit && compinit
+
 PS1="%B%{$fg[cyan]%}[%{$fg[cyan]%}%n%{$fg[white]%}@%{$fg[cyan]%}%M %{$fg[white]%}%~%{$fg[cyan]%}]%{%}$%b "
-
-#PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[cyan]%}@%{$fg[white]%}%m%{$fg[blue]%}]%{$reset_color%}%
-#%(?:%{$fg_bold[cyan]%}➜ :%{$fg_bold[red]%}➜ )"
-#PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
-#ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-#ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
-#ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
-
 
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
@@ -33,7 +21,6 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export LESS=-R
 export MYVIMRC=~/.config/nvim/init.lua
 
-
 # History in cache directory:
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -46,7 +33,7 @@ TranslateWheelToCursor=on
 
 # Load aliases and shortcuts if existent.
 #[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
 #[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Basic auto/tab complete:
@@ -114,3 +101,6 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 
 
 alias luamake=/home/mati/Templates/lua/3rd/luamake/luamake
+if [[ -z "$DISPLAY" ]] && [[ $(tty) = /dev/tty1 ]]; then
+    exec startx
+fi

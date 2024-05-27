@@ -20,7 +20,8 @@ sxhkd &
 redshift &
 xautolock -time 60 -locker 'systemctl suspend' &
 picom --config $HOME/.config/picom/picom.conf &
-nitrogen --restore &
+nitrogen --set-zoom-fill --random ~/imgs/wallpapers &
+
 dunst &
 polybar &
 firefox &
