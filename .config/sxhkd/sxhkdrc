@@ -128,4 +128,6 @@ super + w
 super + e
     thunar
 
-
+# helper
+super + h
+    zathura ~/.config/templates/shortcuts.pdf
