@@ -130,3 +130,7 @@ super + alt + s
 
 super + shift + c
     alacritty -e calc
+
+
+super + Print
+    $HOME/.local/bin/screenShot_xclip

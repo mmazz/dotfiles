@@ -91,7 +91,7 @@ bindkey '^e' edit-command-line
 
 # for .dotfiles repo
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias code='~/downloads/code/VSCode-linux-x64/bin/code'
+#alias code='~/downloads/code/VSCode-linux-x64/bin/code'
 
 alias sshtupac='ssh -i ~/.ssh/id_rsa_tupac mgeier@h2.cluster.tupac.gob.ar'
 
