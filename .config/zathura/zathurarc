@@ -36,8 +36,8 @@ set inputbar-fg                 "#f8f8f2" # Foreground
 set statusbar-bg                "#2E3440" # Background
 set statusbar-fg                "#f8f8f2" # Foreground
 
-set highlight-color             "#5E81AC" # Orange
-set highlight-active-color      "#ff79c6" # Pink
+set highlight-color             rgba(200, 0, 124, 0.50)
+set highlight-active-color      rgba(20, 0, 224, 0.50)
 
 set default-bg                  "#2E3440" # Background
 set default-fg                  "#f8f8f2" # Foreground
@@ -57,4 +57,4 @@ set recolor-darkcolor           "#f8f8f2" # Foreground
 # Startup options
 #
 set adjust-open width
-set recolor true
+#set recolor true

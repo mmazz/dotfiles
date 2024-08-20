@@ -24,7 +24,7 @@ super + shift + q
 
 # close and kill
 super + q
-	bspc node -{c,k}
+	bspc node -{c}
 
 # alternate between the tiled and monocle layout
 super + m
@@ -133,4 +133,6 @@ super + shift + c
 
 
 super + Print
+    $HOME/.local/bin/screenShot_xclip
+super + shift + s
     $HOME/.local/bin/screenShot_xclip

@@ -14,12 +14,14 @@ bspc config gapless_monocle      true
 
 bspc rule -a pavucontrol desktop='^9' follow=on
 bspc rule -a firefox desktop='^1' follow=on
+bspc rule -a Zoom desktop='^4' follow=on
 bspc rule -a Spotify desktop='^5' follow=on
 bspc rule -a Gimp desktop='^6' follow=on
 bspc rule -a Keepassxc desktop='^8' follow=on
 bspc rule -a calc state=floating
 # AutoStart
 
+setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
 dunst &
 polybar &
 firefox &
